@@ -8,14 +8,14 @@ const Banner = () => {
     return (
         <div className="">
             <div className="grid grid-cols-2 relative">
-                <div data-aos="fade-up">
-                    <img src="https://i.ibb.co/3Mp9k4J/pexels-matheus-bertelli-3856027.jpg" alt="" className="w-full h-96" />
+                <div data-aos="zoom-out-right">
+                    <img src="https://imageupload.io/ib/Kv2WMbdCQJHGvLS_1697582521.webp" alt="" className="w-full h-96" />
                 </div>
-                <div data-aos="fade-down">
-                    <img src="https://i.ibb.co/khM1BT9/pexels-keira-burton-6146960.jpg" alt="" className="w-full h-96" />
+                <div data-aos="zoom-out-left">
+                    <img src="https://imageupload.io/ib/ZDThM2BPjBXbKxZ_1697582600.jpg" alt="" className="w-full h-96" />
                 </div>
                 <div className="absolute h-full bg-black bg-opacity-50 w-full">
-                    <div className="flex justify-center py-48">
+                    <div className="flex justify-center py-44">
                         <h1 className="text-5xl z-10 text-white">hello world</h1>
                     </div>
                 </div>

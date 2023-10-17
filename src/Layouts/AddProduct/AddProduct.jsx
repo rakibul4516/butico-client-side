@@ -70,7 +70,7 @@ const AddProduct = () => {
                             <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered input-info w-full" />
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-active  w-full bg-[#E527B2] hover:bg-rose-200 font-bold text-white">Add Coffee</button>
+                    <button type="submit" className="btn btn-active  w-full bg-[#E527B2] hover:bg-rose-200 font-bold text-white">Add Product</button>
                 </form>
 
             </div>
