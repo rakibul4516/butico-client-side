@@ -8,6 +8,8 @@ import Login from "../Layouts/Login/Login";
 import Register from "../Layouts/Register/Register";
 import ProductPage from "../Components/ProductPage/ProductPage";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ProductDetails from "../Components/ProductDetails/ProductDetails";
+import Update from "../Update/Update";
 
 
 const Routes = createBrowserRouter([
@@ -23,10 +25,10 @@ const Routes = createBrowserRouter([
             {
                 path: '/addproduct',
                 element: <PrivateRoute>
-                            <AddProduct>
+                    <AddProduct>
 
-                            </AddProduct>
-                        </PrivateRoute>,
+                    </AddProduct>
+                </PrivateRoute>,
             },
             {
                 path: '/product/:id',
@@ -34,13 +36,32 @@ const Routes = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/brands/${params.id}`)
             },
             {
+                path: '/product/details/:id',
+                element: <PrivateRoute>
+                    <ProductDetails></ProductDetails>
+                </PrivateRoute>,
+            },
+            {
+                path: '/update/:id',
+                element: <PrivateRoute>
+                    <Update></Update>
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+
+
+            },
+            {
                 path: '/mycart',
-                element: <MyCart></MyCart>,
+                element: <PrivateRoute>
+                    <MyCart></MyCart>
+                </PrivateRoute>,
+                loader: () => fetch('http://localhost:5000/carts'),
             },
             {
                 path: '/login',
                 element: <Login></Login>,
-            }, {
+            }, 
+            {
                 path: '/register',
                 element: <Register></Register>,
             },
