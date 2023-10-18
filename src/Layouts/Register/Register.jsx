@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/Authprovider";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
     const [error, setError] = useState('')
     const { handleUserRegister } = useContext(AuthContext)
+    const navigate = useNavigate()
     const handleSignUp = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -30,6 +32,8 @@ const Register = () => {
         handleUserRegister(email, password)
             .then(result => {
                 console.log(result)
+                navigate('/')
+                
             })
             .catch(error => {
                 console.log(error)

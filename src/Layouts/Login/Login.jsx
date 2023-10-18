@@ -1,8 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/Authprovider";
+import {  useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const {handleUserLogin,loginWithGoogle} = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
     const handleSignIn = (event) =>{
         event.preventDefault();
         const form = event.target;
@@ -13,6 +16,7 @@ const Login = () => {
         handleUserLogin(email,password)
         .then(result =>{
             console.log(result)
+            navigate(location?.state ? location.state: '/');
         })
         .catch(error=>{
             console.log(error)
@@ -25,6 +29,10 @@ const Login = () => {
 
     const googleLogin = () =>{
         loginWithGoogle()
+        .then(result=>{
+            console.log(result)
+            navigate(location?.state ? location.state: '/');
+        })
     }
     return (
         <div className="hero min-h-screen">
