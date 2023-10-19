@@ -19,7 +19,6 @@ const ProductPage = () => {
     const filteredProducts = products.filter((product) =>
         product.type === name
     );
-    console.log(filteredProducts)
     return (
         <div className="">
             <div className="">

@@ -43,6 +43,9 @@ const AuthProvider = ({ children }) => {
             }
         })
     }, [])
+
+
+
     const authData = {
         users,
         loading,
@@ -53,9 +56,9 @@ const AuthProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={authData}>
-            {children}
-        </AuthContext.Provider>
+            <AuthContext.Provider value={authData}>
+                    {children}
+            </AuthContext.Provider>
     );
 };
 

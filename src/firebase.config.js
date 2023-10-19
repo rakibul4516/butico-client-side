@@ -7,17 +7,17 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDkRrTJ8Vp8pWJTJkJsgAx2I3hlCtpoRhQ",
-  authDomain: "butico-4f68f.firebaseapp.com",
-  projectId: "butico-4f68f",
-  storageBucket: "butico-4f68f.appspot.com",
-  messagingSenderId: "61771561387",
-  appId: "1:61771561387:web:656b50cb66eae468c0faee"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-export default auth;
+export default auth
 

@@ -1,10 +1,16 @@
-// import { HiMoon, HiSun, HiMagnifyingGlass } from 'react-icons/hi2';
+import { HiMoon, HiSun } from 'react-icons/hi2';
 import { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/Authprovider';
+import { ThemeContext } from '../../Context/Context';
+
 
 const Navbar = () => {
-    const {users,userSignOut} = useContext(AuthContext)
+    const { users, userSignOut } = useContext(AuthContext)
+    const [isDropdown, setIsDropdown] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const {theme,setTheme} = useContext(ThemeContext)
+
     const navitems = <>
         <div className="flex md:flex-row flex-col lg:gap-3 md:gap-1 max-sm:gap-2 items-center text-white font-semibold">
             <NavLink to='/' className='activeroute inline-block w-full lg:px-4 px-2 py-2 text-center text-gray-800 max-md:bg-white rounded-md shadow hover:bg-gray-100'>Home</NavLink>
@@ -15,9 +21,6 @@ const Navbar = () => {
 
         </div>
     </>
-
-    const [isDropdown, setIsDropdown] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleDropdown = () => {
         setIsDropdown(!isDropdown);
@@ -33,13 +36,19 @@ const Navbar = () => {
     const HandelLogout = () => {
         userSignOut()
     }
+
+    //Dark mode implemant
+
     return (
         <nav className="shadow dark:bg-gray-900  relative">
             <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4 ">
                 <div className="flex items-center">
-                    <h1 className="text-3xl font-semibold">BUTICO</h1>
+                    <h1 className="text-3xl font-semibold dark:bg-white">BUTICO</h1>
                 </div>
+
                 <div className="flex items-center md:order-2">
+                    {theme ==='light' ? <HiMoon className='text-4xl cursor-pointer' onClick={() => {setTheme('dark');localStorage.setItem('theme','dark')}} /> : <HiSun className='text-4xl cursor-pointer text-white' onClick={() => {setTheme('light');localStorage.setItem('theme','light')}} />}
+                    
                     {
                         users ? <div className="">
                             <button
@@ -135,3 +144,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

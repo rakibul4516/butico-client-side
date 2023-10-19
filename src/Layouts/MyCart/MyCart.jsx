@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const MyCart = () => {
     const allcartProducts = useLoaderData()
@@ -9,15 +10,34 @@ const MyCart = () => {
     const totalPrice = getTotalPrice.toFixed(2)
     //remove product form cart
     const handleRemove = (_id) => {
-        fetch(`http://localhost:5000/carts/${_id}`, {
-            method: "DELETE"
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your Coffee has been deleted.',
+                    'success'
+                )
+                fetch(`http://localhost:5000/carts/${_id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        const remainingData = cartProducts.filter(product => product._id !== _id)
+                        setCartProducts(remainingData)
+                    })
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                const remainingData = cartProducts.filter(product => product._id !== _id)
-                setCartProducts(remainingData)
-            })
+
     }
     return (
         <div>
