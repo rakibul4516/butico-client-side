@@ -19,7 +19,7 @@ const BrandCard = () => {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-11/12 mx-auto my-5 gap-5">
             {
                 brands?.map(brand => <>
-                    <Link to={`/product/`}>
+                    <Link to={`/product/${brand._id}`}>
                         <div data-aos="zoom-in-left"
                              className="max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
                             <img src={brand.image} alt="" className="object-cover object-center w-full rounded-t-md h-44 dark:bg-gray-500" />

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/Authprovider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
     const [error, setError] = useState('')
@@ -14,7 +15,6 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password)
 
 
         //password validation
@@ -23,15 +23,19 @@ const Register = () => {
             setError('Password should be at least 8 characters');
             return;
         } else if (!(/[A-Z]/.test(password))) {
-            setError('Password should contain at least one uppercase letter (A-Z)');
+            setError('At least one uppercase letter (A-Z)');
             return;
         } else if (!(/[@#$%^&+=!]/.test(password))) {
-            setError('Password should contain at least one special character (@#$%^&+=!)')
+            setError('At least one special character (@#$%^&+=!)')
             return;
         }
         //Register
         handleUserRegister(email, password)
-            .then(() => {
+            .then((result) => {
+                updateProfile(result.user,{
+                    displayName:name,
+                    photoURL:photo
+                })
                 Swal.fire({
                     title: 'Success!',
                     text: 'Successfully Sign Up',
