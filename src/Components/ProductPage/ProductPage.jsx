@@ -9,7 +9,7 @@ const ProductPage = () => {
     console.log(name)
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://butico-server-bn6y23no7-rakibul-islams-projects.vercel.app/products')
             .then(res => res.json())
             .then(data => {
                 setProducts(data)
@@ -26,7 +26,7 @@ const ProductPage = () => {
             </div>
             <div className="grid lg:grid-cols-2 grid-cols-1 w-11/12 md:w-10/12 mx-auto gap-8 my-10" >
                 {
-                    filteredProducts?.map(product => <>
+                    filteredProducts?filteredProducts?.map(product => <>
 
                         <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <div>
@@ -64,7 +64,7 @@ const ProductPage = () => {
                             </div>
                         </div>
 
-                    </>)
+                    </>):<div className=""><h3 className="text-center text-4xl font-semibold">Product Not Added</h3></div>
                 }
             </div>
         </div>

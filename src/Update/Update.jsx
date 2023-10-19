@@ -16,7 +16,7 @@ const Update = () => {
         const product = {productName,type,price,rating,desc,photo}
 
         //Post method 
-        fetch(`http://localhost:5000/products/${_id}`,{
+        fetch(`https://butico-server-bn6y23no7-rakibul-islams-projects.vercel.app/products/${_id}`,{
             method:"PUT",
             headers:{
                 'content-type':'application/json'
@@ -33,7 +33,7 @@ const Update = () => {
     return (
         <div>
             <div>
-                <div className="w-11/12 mx-auto lg:p-20">
+                <div className="w-11/12 dark:text-white mx-auto lg:p-20">
                     <div className="text-center my-6">
                         <h1 className="text-3xl font-extrabold drop-shadow-2xl my-2">Update Product</h1>
                         <p className="text-sm w-10/12 mx-auto ">It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>

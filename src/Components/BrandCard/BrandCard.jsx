@@ -5,7 +5,7 @@ import 'aos/dist/aos.css'
 const BrandCard = () => {
     const [brands, setbrands] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/brands')
+        fetch('https://butico-server-bn6y23no7-rakibul-islams-projects.vercel.app/brands')
             .then(res => res.json())
             .then(result => {
                 setbrands(result)

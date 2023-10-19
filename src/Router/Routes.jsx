@@ -33,7 +33,7 @@ const Routes = createBrowserRouter([
             {
                 path: '/product/:id',
                 element: <ProductPage></ProductPage>,
-                loader: ({ params }) => fetch(`http://localhost:5000/brands/${params.id}`)
+                loader: ({ params }) => fetch(`https://butico-server-bn6y23no7-rakibul-islams-projects.vercel.app/brands/${params.id}`)
             },
             {
                 path: '/product/details/:id',
@@ -46,7 +46,7 @@ const Routes = createBrowserRouter([
                 element: <PrivateRoute>
                     <Update></Update>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://butico-server-bn6y23no7-rakibul-islams-projects.vercel.app/products/${params.id}`)
 
 
             },
@@ -55,7 +55,7 @@ const Routes = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyCart></MyCart>
                 </PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/carts'),
+                loader: () => fetch('https://butico-server-bn6y23no7-rakibul-islams-projects.vercel.app/carts'),
             },
             {
                 path: '/login',

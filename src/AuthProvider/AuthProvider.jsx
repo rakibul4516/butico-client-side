@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import auth from "../firebase.config";
+import Swal from 'sweetalert2'
 
 
 export const AuthContext = createContext(null)
@@ -29,7 +30,12 @@ const AuthProvider = ({ children }) => {
     const userSignOut = () => {
         setLoading(true)
         signOut(auth).then(() => {
-            console.log("logOut succesfully")
+            Swal.fire({
+                title: 'Success!',
+                text: 'Successfully Sign Out',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
         })
     }
 
