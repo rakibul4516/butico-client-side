@@ -50,8 +50,6 @@ const AuthProvider = ({ children }) => {
         })
     }, [])
 
-
-
     const authData = {
         users,
         loading,
