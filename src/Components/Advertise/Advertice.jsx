@@ -1,7 +1,5 @@
-import PropTypes from 'prop-types';
 
-const Advertice = ({ filteredProducts }) => {
-    console.log(filteredProducts)
+const Advertice = () => {
     return (
         <div>
             <div className="carousel w-full h-[100vh] ">
@@ -32,8 +30,5 @@ const Advertice = ({ filteredProducts }) => {
     );
 };
 
-Advertice.propTypes = {
-    filteredProducts: PropTypes.array
-};
 
 export default Advertice;

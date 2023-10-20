@@ -5,6 +5,7 @@
 # Here are some bullet key features of my website
 
 ***1. Website UI Design: ***
+
 This website boasts a modern and intuitive user interface design that prioritizes user-friendliness and aesthetics. With a clean and minimalist layout, users can easily navigate and access information seamlessly. UI features a harmonious color scheme and typography choices that not only enhance readability but also reflect our brand's identity. Interactive elements like buttons and forms are thoughtfully designed to encourage user engagement. My website's UI design combines functionality and visual appeal to deliver a satisfying and user-centric browsing experience. 
 
 ***2. Firebase Authentication***

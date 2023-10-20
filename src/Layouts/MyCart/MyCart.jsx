@@ -19,23 +19,24 @@ const MyCart = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your Coffee has been deleted.',
-                    'success'
-                )
+        }).then(() => {
                 fetch(`https://butico-server.vercel.app/carts/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
+                        if(data.deletedCount >0){
+                            Swal.fire({
+                                title: 'Success!',
+                                text: ' Successfully Deleted',
+                                icon: 'success',
+                                confirmButtonText: 'Ok'
+                            })
+                        }
                         const remainingData = cartProducts.filter(product => product._id !== _id)
                         setCartProducts(remainingData)
                     })
-            }
+            
         })
 
     }

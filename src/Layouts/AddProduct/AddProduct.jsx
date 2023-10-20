@@ -11,7 +11,7 @@ const AddProduct = () => {
         if (!validTypes.includes(brand)) {
             Swal.fire({
                 title: 'Failed!',
-                text: "You must submit type =>L'Oréal,Estée Lauder,Chanel,Dior,Revlon ",
+                text: "You must submit Brand =>L'Oréal,Estée Lauder,Chanel,Dior,Revlon ",
                 icon: 'error',
                 confirmButtonText: 'Ok'
             })
