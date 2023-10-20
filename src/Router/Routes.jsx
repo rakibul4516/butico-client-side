@@ -10,6 +10,7 @@ import ProductPage from "../Components/ProductPage/ProductPage";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ProductDetails from "../Components/ProductDetails/ProductDetails";
 import Update from "../Update/Update";
+import Contact from "../Layouts/Contact/Contact";
 
 
 const Routes = createBrowserRouter([
@@ -26,7 +27,6 @@ const Routes = createBrowserRouter([
                 path: '/addproduct',
                 element: <PrivateRoute>
                     <AddProduct>
-
                     </AddProduct>
                 </PrivateRoute>,
             },
@@ -47,8 +47,6 @@ const Routes = createBrowserRouter([
                     <Update></Update>
                 </PrivateRoute>,
                 loader: ({ params }) => fetch(`https://butico-server.vercel.app/products/${params.id}`)
-
-
             },
             {
                 path: '/mycart',
@@ -64,6 +62,10 @@ const Routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>,
+            },
+            {
+                path: '/contact',
+                element: <Contact></Contact>,
             },
         ]
     }

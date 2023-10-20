@@ -24,8 +24,8 @@ const ProductDetails = () => {
 
     //handle add to cart button 
     const handleAddToCart = (data) => {
-        const {productName,type,price,rating,desc,photo} = data||{}
-        const cartsProduct = {productName,type,price,rating,desc,photo}
+        const {productName,type,brand,price,rating,desc,photo} = data||{}
+        const cartsProduct = {productName,type,brand,price,rating,desc,photo}
 
         fetch('https://butico-server.vercel.app/carts', {
             method: "POST",
