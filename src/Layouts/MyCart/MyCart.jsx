@@ -26,7 +26,7 @@ const MyCart = () => {
                     'Your Coffee has been deleted.',
                     'success'
                 )
-                fetch(`https://butico-server-bn6y23no7-rakibul-islams-projects.vercel.app/carts/${_id}`, {
+                fetch(`https://butico-server.vercel.app/carts/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

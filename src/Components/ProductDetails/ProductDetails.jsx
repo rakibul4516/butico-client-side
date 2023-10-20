@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactStars from 'react-rating-star-with-type'
+import Swal from 'sweetalert2'
 
 const ProductDetails = () => {
     const [products, setProducts] = useState([])
     const [star, setStar] = useState(5);
 
     const { id } = useParams()
-    console.log(id)
     //fetch data 
     useEffect(() => {
-        fetch('https://butico-server-bn6y23no7-rakibul-islams-projects.vercel.app/products')
+        fetch('https://butico-server.vercel.app/products')
             .then(res => res.json())
             .then(data => {
                 setProducts(data)
-                console.log(data)
             })
     }, [])
 
@@ -26,7 +25,7 @@ const ProductDetails = () => {
     //handle add to cart button 
     const handleAddToCart = (data) => {
         console.log(data)
-        fetch('https://butico-server-bn6y23no7-rakibul-islams-projects.vercel.app/carts', {
+        fetch('https://butico-server.vercel.app/carts', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -35,7 +34,14 @@ const ProductDetails = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
+                if(result.acknowledged==true){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Successfully Added to cart',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }
             })
     }
 
@@ -63,9 +69,7 @@ const ProductDetails = () => {
                                                 onChange={onChange}
                                                 value={product.rating}
                                                 edit={true}
-                                                activeColors={["red", "orange", "#FFCE00", "#9177FF", "#8568FC"]}
-                                                classNames="ratings"
-                                            />
+                                                activeColors={["red", "orange", "#FFCE00", "#9177FF", "#8568FC"]}                                            />
                                             <p className="">{product.rating}</p>
                                         </div>
                                         <p className="leading-relaxed">{product.desc}</p>

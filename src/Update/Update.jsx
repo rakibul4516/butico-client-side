@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const Update = () => {
     const productsdata = useLoaderData()
@@ -16,7 +17,7 @@ const Update = () => {
         const product = {productName,type,price,rating,desc,photo}
 
         //Post method 
-        fetch(`https://butico-server-bn6y23no7-rakibul-islams-projects.vercel.app/products/${_id}`,{
+        fetch(`https://butico-server.vercel.app/products/${_id}`,{
             method:"PUT",
             headers:{
                 'content-type':'application/json'
@@ -24,10 +25,16 @@ const Update = () => {
             body: JSON.stringify(product),
         })
         .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            alert('data update successfully')
-            form.reset()
+        .then((result)=>{
+            if(result.acknowledged==true){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Updated Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+                form.reset()
+            }
         })
     }
     return (
@@ -36,7 +43,6 @@ const Update = () => {
                 <div className="w-11/12 dark:text-white mx-auto lg:p-20">
                     <div className="text-center my-6">
                         <h1 className="text-3xl font-extrabold drop-shadow-2xl my-2">Update Product</h1>
-                        <p className="text-sm w-10/12 mx-auto ">It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
                     </div>
                     <form onSubmit={handleUpdateProduct} className="">
                         <div className="md:flex gap-5 mb-5 w-full">
@@ -45,7 +51,7 @@ const Update = () => {
                                 <input type="text"  placeholder="Product Name" name="productName" defaultValue={productName} className="input input-bordered input-info w-full" />
                             </div>
                             <div className="md:flex flex-col items-start w-full gap-2">
-                                <label className="text-lg font-semibold px-3"> Product Type</label>
+                                <label className="text-lg font-semibold px-3"> Product Brand/Type</label>
                                 <input type="text" defaultValue={type} name="type" placeholder="Product Type" className="input input-bordered input-info w-full" />
                             </div>
                         </div>

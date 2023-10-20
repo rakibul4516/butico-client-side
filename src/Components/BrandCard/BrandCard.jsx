@@ -5,13 +5,13 @@ import 'aos/dist/aos.css'
 const BrandCard = () => {
     const [brands, setbrands] = useState([])
     useEffect(() => {
-        fetch('https://butico-server-bn6y23no7-rakibul-islams-projects.vercel.app/brands')
+        fetch('https://butico-server.vercel.app/brands')
             .then(res => res.json())
             .then(result => {
                 setbrands(result)
             })
     }, [])
-
+    //use Aos package
     useEffect(() => {
         Aos.init({ duration: 2000 })
     }, [])

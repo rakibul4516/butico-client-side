@@ -1,11 +1,22 @@
+import Swal from 'sweetalert2'
 
 const AddProduct = () => {
-
     const handleAddProduct = (event) => {
         event.preventDefault()
         const form = event.target;
         const productName = form.productName.value;
         const type = form.type.value;
+        var validTypes = ["L'Oréal","Estée Lauder","Chanel","Dior","Revlon"];
+
+        if(!validTypes.includes(type)){
+            Swal.fire({
+                title: 'Failed!',
+                text: "You must submit type =>L'Oréal,Estée Lauder,Chanel,Dior,Revlon ",
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+            return;
+        }
         const price = form.price.value;
         const rating = form.rating.value;
         const desc = form.desc.value;
@@ -13,7 +24,7 @@ const AddProduct = () => {
         const product = {productName,type,price,rating,desc,photo}
 
         //Post method 
-        fetch('https://butico-server-bn6y23no7-rakibul-islams-projects.vercel.app/products',{
+        fetch('https://butico-server.vercel.app/products',{
             method:"POST",
             headers:{
                 'content-type':'application/json'
@@ -21,9 +32,17 @@ const AddProduct = () => {
             body: JSON.stringify(product),
         })
         .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            alert('data added successfully')
+        .then((result)=>{
+            if(result.acknowledged==true){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Product added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+                form.reset()
+            }
+            console.log(result)
         })
 
     }
@@ -35,7 +54,6 @@ const AddProduct = () => {
             <div className="w-11/12 mx-auto dark:text-white lg:p-20">
                 <div className="text-center my-6">
                     <h1 className="text-3xl font-extrabold drop-shadow-2xl my-2">Add New Product</h1>
-                    <p className="text-sm w-10/12 mx-auto ">It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
                 </div>
                 <form onSubmit={handleAddProduct} className="">
                     <div className="md:flex gap-5 mb-5 w-full">
@@ -44,7 +62,7 @@ const AddProduct = () => {
                             <input type="text" placeholder="Product Name" name="productName" className="input input-bordered input-info w-full" />
                         </div>
                         <div className="md:flex flex-col items-start w-full gap-2">
-                            <label className="text-lg font-semibold px-3"> Product Type</label>
+                            <label className="text-lg font-semibold px-3"> Product Brand/Type</label>
                             <input type="text" name="type" placeholder="Product Type" className="input input-bordered input-info w-full" />
                         </div>
                     </div>
