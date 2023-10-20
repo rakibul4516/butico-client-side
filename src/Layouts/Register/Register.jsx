@@ -55,37 +55,34 @@ const Register = () => {
             <div className="w-full col-span-3">
                 <img src="https://i.ibb.co/x1dNsx7/banner2df.jpg" alt="banner" className="h-full w-full" />
             </div>
-            <div className=" col-span-2 top-32 right-5 p-8 space-y-3 rounded-xl bg-rose-100 dark:text-gray-100">
+            <div className=" col-span-2 top-32 right-5 p-8 space-y-3  bg-rose-100 dark:text-gray-700">
                 <h1 className="text-2xl font-bold text-center">Register</h1>
                 <form onSubmit={handleSignUp} action="" className="space-y-6">
                     <div className="space-y-1 text-sm">
-                        <label className="block dark:text-gray-400">Name</label>
+                        <label className="block dark:text-gray-700">Name</label>
                         <input type="text" name="name" placeholder="Name" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                     </div>
                     <div className="space-y-1 text-sm">
-                        <label className="block dark:text-gray-400">Photo URL</label>
+                        <label className="block dark:text-gray-700">Photo URL</label>
                         <input type="text" name="photo" placeholder="Photo URL" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                     </div>
                     <div className="space-y-1 text-sm">
-                        <label className="block dark:text-gray-400">Email</label>
+                        <label className="block dark:text-gray-700">Email</label>
                         <input type="email" name="email" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required/>
                     </div>
                     <div className="space-y-1 text-sm">
-                        <label className="block dark:text-gray-400">Password</label>
+                        <label className="block dark:text-gray-700">Password</label>
                         <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
-                        <div className="flex justify-end text-xs dark:text-gray-400">
-                            <a rel="noopener noreferrer" href="#">Forgot Password?</a>
-                        </div>
                     </div>
 
                     {
                         error?<p className="text-red-600 py-2">{error}</p>:''
                     }
 
-                    <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 bg-violet-400">Sign Up</button>
+                    <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 bg-[#E527B2]">Sign Up</button>
                 </form>
-                <p className="text-xs text-center sm:px-6 dark:text-gray-400">Already have an account?
-                    <Link to='/login' rel="noopener noreferrer" className="underline dark:text-gray-100">Log In</Link>
+                <p className="text-xs text-center sm:px-6 dark:text-gray-700">Already have an account?
+                    <Link to='/login' rel="noopener noreferrer" className="hover:underline pl-2 text-md font-semibold dark:text-gray-700">Log In</Link>
                 </p>
             </div>
         </div>

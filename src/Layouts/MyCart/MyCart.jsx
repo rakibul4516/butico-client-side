@@ -41,12 +41,12 @@ const MyCart = () => {
     }
     return (
         <div>
-            <div className="flex flex-col w-11/12 mx-auto space-y-4 sm:p-10 dark:text-gray-100">
+            {(cartProducts.length>0)?<div className="flex flex-col w-11/12 mx-auto space-y-4 sm:p-10 dark:text-gray-100">
                 <h2 className="text-xl font-semibold">Your cart</h2>
                 <ul className="grid lg:grid-cols-2 grid-cols-1 gap-5">
                     {
                         cartProducts?.map(product => <>
-                            <li className="flex flex-col sm:flex-row sm:justify-between shadow-md rounded-md">
+                            <li className="flex flex-col sm:flex-row sm:justify-between shadow-md rounded-md dark:bg-slate-700">
                                 <div className="flex w-full space-x-2 sm:space-x-4">
                                     <img className="flex-shrink-0 object-cover w-24 h-full dark:border-transparent rounded outline-none sm:w-32 sm:h-full dark:bg-gray-500" src={product.photo} alt={product.productName} />
                                     <div className="flex flex-col justify-between w-full py-3 pr-2">
@@ -88,14 +88,15 @@ const MyCart = () => {
                     <p className="text-sm dark:text-gray-400">Including taxes and shipping costs</p>
                 </div>
                 <div className="flex justify-end space-x-4">
-                    <Link to='/' type="button" className="px-6 py-2 border rounded-md dark:border-violet-400">Back
+                    <Link to='/' type="button" className="px-6 py-2 border rounded-md bg-fuchsia-500 dark:border-violet-400">Back
                         <span className="sr-only sm:not-sr-only">to shop</span>
                     </Link>
-                    <button type="button" className="px-6 py-2 border rounded-md dark:bg-violet-400 dark:text-gray-900 dark:border-violet-400">
+                    <button type="button" className="px-6 py-2 border bg-[#E527B2] rounded-md dark:bg-violet-400 dark:text-gray-900 dark:border-violet-400">
                         <span className="sr-only sm:not-sr-only">Continue to</span>Checkout
                     </button>
                 </div>
-            </div>
+            </div>: <div className="flex justify-center items-center h-[80vh] w-full"><h3 className="text-center text-4xl font-semibold">Empty Cart! Please Add Product</h3></div>
+            }
         </div>
     );
 };

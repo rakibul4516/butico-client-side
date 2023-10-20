@@ -6,8 +6,8 @@ const AddProduct = () => {
         const form = event.target;
         const productName = form.productName.value;
         const type = form.type.value;
+        //type validation
         var validTypes = ["L'Oréal","Estée Lauder","Chanel","Dior","Revlon"];
-
         if(!validTypes.includes(type)){
             Swal.fire({
                 title: 'Failed!',

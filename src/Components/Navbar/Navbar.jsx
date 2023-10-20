@@ -20,9 +20,7 @@ const Navbar = () => {
 
         </div>
     </>
-
-
-
+    
 
     // Logout section
     const HandelLogout = () => {
@@ -78,7 +76,7 @@ const Navbar = () => {
                                 </ul>
                             </div>
                         </div>
-                            :<NavLink to='/login' className='activeclass py-2 lg:px-4 px-2 hover:bg-[#E527B2] text-md font-semibold text-black rounded-lg bg-transparent'>Login</NavLink>
+                            :<NavLink to='/login' className='activeclass py-2 lg:px-4 px-2 dark:text-white hover:bg-[#E527B2] text-md font-semibold text-black rounded-lg bg-transparent'>Login</NavLink>
 
                     }
                     {/* small Dropdown menu */}
@@ -110,7 +108,7 @@ const Navbar = () => {
                     className={`${isMenuOpen ? 'block' : 'hidden'
                         } items-center justify-between w-full md:flex md:w-auto md:order-1`}
                 >
-                    <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 borde rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         {navitems}
                     </ul>
                 </div>
