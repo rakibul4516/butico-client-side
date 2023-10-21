@@ -8,12 +8,9 @@ const Banner = () => {
     }, [])
     return (
         <div className="">
-            <div className="grid grid-cols-2 relative">
-                <div data-aos="zoom-out-right">
-                    <img src="https://imageupload.io/ib/Kv2WMbdCQJHGvLS_1697582521.webp" alt="" className="w-full h-96" />
-                </div>
+            <div className="grid relative">
                 <div data-aos="zoom-out-left">
-                    <img src="https://imageupload.io/ib/ZDThM2BPjBXbKxZ_1697582600.jpg" alt="" className="w-full h-96" />
+                    <img src="https://imageupload.io/ib/ZDThM2BPjBXbKxZ_1697582600.jpg" alt="" className="w-full object-fill md:h-[100vh] h-96" />
                 </div>
                 <div className="md:p-6 md:py-28 py-24 dark:text-gray-900 bg-black w-full h-full bg-opacity-60 absolute">
                     <div className="container mx-auto">

@@ -29,7 +29,7 @@ const ProductPage = () => {
             {
                 (filteredProducts.length > 0) ? <div className="">
                     <div className="">
-                        <Advertice></Advertice>
+                        <Advertice filteredProducts={filteredProducts}></Advertice>
                     </div>
                     <div className="grid lg:grid-cols-2 grid-cols-1 w-11/12 md:w-10/12 mx-auto gap-8 my-10" >
                         {

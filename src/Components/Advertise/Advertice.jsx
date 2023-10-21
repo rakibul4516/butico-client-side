@@ -1,34 +1,54 @@
 
-const Advertice = () => {
-    return (
-        <div>
-            <div className="carousel w-full md:h-[100vh] h-96 ">
-                <div id="slide1" className="carousel-item relative w-full">
-                    <img src="https://i.ibb.co/CBSry71/banner3.jpg" className="w-full md:h-[100vh] h-96 object-cover" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide4" className="btn btn-circle ">❮</a>
-                        <a href="#slide2" className="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide2" className="carousel-item relative w-full">
-                    <img src="https://i.ibb.co/ZJJh91q/banner1.jpg" className="w-full md:h-[100vh] h-96 object-cover" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide1" className="btn btn-circle">❮</a>
-                        <a href="#slide3" className="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide3" className="carousel-item relative w-full">
-                    <img src="https://i.ibb.co/Jn8HCNR/banner3.jpg" className="w-full md:h-[100vh] h-96 object-cover" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide3" className="btn btn-circle">❮</a>
-                        <a href="#slide1" className="btn btn-circle">❯</a>
-                    </div>
-                </div>
+import { useRef, useEffect } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import PropTypes from 'prop-types'
 
-            </div>
+const Advertice = ({filteredProducts}) => {
+    const sliderRef = useRef(null);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            // Move to the next slide
+            sliderRef.current.slickNext();
+        }, 5000); // 5000 milliseconds (5 seconds)
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+    };
+    return (
+            <div className="">
+                <div className="w-full mx-auto">
+                    <Slider ref={sliderRef} {...settings}>
+                        {filteredProducts.map((product, index) => (
+                            <div key={index} className="w-full md:h-[100vh] h-96">
+                                <img
+                                    src={product.banner}
+                                    alt={`Image ${index}`}
+                                    className="w-full h-full object-fill"
+                                />
+                            </div>
+                        ))}
+                    </Slider>
+                </div>
         </div>
     );
 };
 
+Advertice.propTypes = {
+    filteredProducts:PropTypes.array
+}
 
 export default Advertice;
