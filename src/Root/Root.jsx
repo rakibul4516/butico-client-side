@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import { useState } from "react";
 import { useEffect } from "react";
 import ThemeContext from "../Context/Context";
+import Footer from "../Components/Footer/Footer"
 const Root = () => {
     //dark theme code 
     const [theme, setTheme] = useState('light')
@@ -15,6 +16,7 @@ const Root = () => {
                 <div className={`${theme} ${theme === 'dark' ? 'bg-[#121212]' : null} h-full`} >
                     <Navbar></Navbar>
                     <Outlet></Outlet>
+                    <Footer></Footer>
                 </div>
             </ThemeContext.Provider>
 

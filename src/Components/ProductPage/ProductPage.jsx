@@ -68,7 +68,7 @@ const ProductPage = () => {
                             </>)
                         }
                     </div>
-                </div> : <div className="flex justify-center items-center h-[80vh]"><h3 className="text-center text-4xl font-semibold">Product Not Added</h3></div>
+                </div> : <div className="flex justify-center items-center h-[80vh]"><h3 className="text-center dark:text-white text-4xl font-semibold">Product Not Added</h3></div>
             }
         </div>
 

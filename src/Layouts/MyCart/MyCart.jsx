@@ -96,7 +96,7 @@ const MyCart = () => {
                         <span className="sr-only sm:not-sr-only">Continue to</span>Checkout
                     </button>
                 </div>
-            </div>: <div className="flex justify-center items-center h-[80vh] w-full"><h3 className="text-center text-4xl font-semibold">Empty Cart! Please Add Product</h3></div>
+            </div>: <div className="flex justify-center items-center h-[80vh] w-full"><h3 className="text-center dark:text-white text-4xl font-semibold">Empty Cart! Please Add Product</h3></div>
             }
         </div>
     );
